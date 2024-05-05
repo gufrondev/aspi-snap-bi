@@ -9,7 +9,7 @@ class AspiSnapBIServiceProvider extends ServiceProvider
     /**
      * Register services.
      */
-    public function register(): void
+    public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/snapbi.php', 'snapbi');
     }
@@ -17,7 +17,7 @@ class AspiSnapBIServiceProvider extends ServiceProvider
     /**
      * Bootstrap services.
      */
-    public function boot(): void
+    public function boot()
     {
         $this->publishes([
             __DIR__.'/../config/snap.php' => config_path('snapbi.php'),

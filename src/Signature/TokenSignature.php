@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Libraries\AspiSnapBI\Signature;
+namespace GufronDev\AspiSnapBI\Signature;
 
 use Exception;
-use App\Libraries\AspiSnapBI\Signature\SignatureRequest;
+use GufronDev\AspiSnapBI\Signature\SignatureRequest;
 
 class TokenSignature
 {

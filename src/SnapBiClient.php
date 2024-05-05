@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Libraries\AspiSnapBI;
+namespace GufronDev\AspiSnapBI;
 
-use App\Libraries\AspiSnapBI\Services\Transfer;
-use App\Libraries\AspiSnapBI\Services\AccountInquiry;
+use GufronDev\AspiSnapBI\Services\Transfer;
+use GufronDev\AspiSnapBI\Services\AccountInquiry;
 
 class SnapBiClient
 {

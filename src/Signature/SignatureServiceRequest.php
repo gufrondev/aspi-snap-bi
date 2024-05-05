@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Libraries\AspiSnapBI\Signature;
+namespace GufronDev\AspiSnapBI\Signature;
 
 use Exception;
-use App\Libraries\AspiSnapBI\Requestor;
-use App\Libraries\AspiSnapBI\UrlFactory;
-use App\Libraries\AspiSnapBI\HeaderFactory;
+use GufronDev\AspiSnapBI\Requestor;
+use GufronDev\AspiSnapBI\UrlFactory;
+use GufronDev\AspiSnapBI\HeaderFactory;
 
 class SignatureServiceRequest
 {

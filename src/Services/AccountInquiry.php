@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Libraries\AspiSnapBI\Services;
+namespace GufronDev\AspiSnapBI\Services;
 
-use App\Libraries\AspiSnapBI\Requestor;
-use App\Libraries\AspiSnapBI\UrlFactory;
-use App\Libraries\AspiSnapBI\HeaderFactory;
-use App\Libraries\AspiSnapBI\Authorization\AuthToken;
-use App\Libraries\AspiSnapBI\Signature\ServiceSignature;
+use GufronDev\AspiSnapBI\Requestor;
+use GufronDev\AspiSnapBI\UrlFactory;
+use GufronDev\AspiSnapBI\HeaderFactory;
+use GufronDev\AspiSnapBI\Authorization\AuthToken;
+use GufronDev\AspiSnapBI\Signature\ServiceSignature;
 
 class AccountInquiry
 {

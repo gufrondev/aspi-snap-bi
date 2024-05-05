@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Libraries\AspiSnapBI\Signature;
+namespace GufronDev\AspiSnapBI\Signature;
 
-use App\Libraries\AspiSnapBI\Authorization\AuthToken;
+use GufronDev\AspiSnapBI\Authorization\AuthToken;
 use Exception;
 
 class ServiceSignature

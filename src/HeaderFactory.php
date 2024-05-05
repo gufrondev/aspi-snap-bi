@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Libraries\AspiSnapBI;
+namespace GufronDev\AspiSnapBI;
 
 class HeaderFactory
 {

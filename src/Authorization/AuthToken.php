@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Libraries\AspiSnapBI\Authorization;
+namespace GufronDev\AspiSnapBI\Authorization;
 
-use Exception;
 use Illuminate\Support\Facades\Cache;
-use App\Libraries\AspiSnapBI\Requestor;
-use App\Libraries\AspiSnapBI\UrlFactory;
-use App\Libraries\AspiSnapBI\HeaderFactory;
-use App\Libraries\AspiSnapBI\Signature\TokenSignature;
+use GufronDev\AspiSnapBI\Requestor;
+use GufronDev\AspiSnapBI\UrlFactory;
+use GufronDev\AspiSnapBI\HeaderFactory;
+use GufronDev\AspiSnapBI\Signature\TokenSignature;
 
 class AuthToken
 {

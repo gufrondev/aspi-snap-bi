@@ -3,7 +3,7 @@
  * Requestor class for making HTTP requests
  */
 
-namespace App\Libraries\AspiSnapBI;
+namespace GufronDev\AspiSnapBI;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\PendingRequest;
