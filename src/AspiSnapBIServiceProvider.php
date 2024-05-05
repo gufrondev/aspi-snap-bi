@@ -20,8 +20,8 @@ class AspiSnapBIServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/snap.php' => config_path('snapbi.php'),
-        ], 'snapbi-config');
+            __DIR__.'/../config/config.php' => config_path('snapbi.php'),
+        ], 'aspi-snap-bi');
 
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
     }
