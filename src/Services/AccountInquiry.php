@@ -1,0 +1,101 @@
+<?php
+
+namespace App\Libraries\AspiSnapBI\Services;
+
+use App\Libraries\AspiSnapBI\Requestor;
+use App\Libraries\AspiSnapBI\UrlFactory;
+use App\Libraries\AspiSnapBI\HeaderFactory;
+use App\Libraries\AspiSnapBI\Authorization\AuthToken;
+use App\Libraries\AspiSnapBI\Signature\ServiceSignature;
+
+class AccountInquiry
+{
+    protected Requestor $requestor;
+    protected $timestamp;
+    protected $provider;
+    protected $use_proxy;
+    protected $authToken;
+
+    public function __construct($provider)
+    {
+        $this->requestor = new Requestor();
+        $this->timestamp = date(DATE_ATOM, time());
+        $this->provider = $provider;
+
+        $this->use_proxy = config("snapbi.{$this->provider}.use_proxy");
+        $this->authToken = new AuthToken($this->timestamp, $this->provider);
+
+        if ( $this->use_proxy ) {
+            $ip = config("snapbi.{$this->provider}.proxy_ip");
+            $port = config("snapbi.{$this->provider}.proxy_port");
+            $username = config("snapbi.{$this->provider}.proxy_username");
+            $password = urlencode(config("snapbi.{$this->provider}.proxy_password"));
+
+            $this->requestor->mergeOptions(
+                ['proxy' => "http://{$username}:{$password}@{$ip}:{$port}"]
+            );
+        }
+    }
+
+    public function external($data) {
+        $endpoint = UrlFactory::create($this->provider, 'account-inquiry-external');
+        $url = config("snapbi.{$this->provider}.url") . '/'. $endpoint;
+
+        $headers = new HeaderFactory(
+            authorization: $this->authToken->get(),
+            timestamp: $this->timestamp,
+            partnerId: config("snapbi.{$this->provider}.client_id"),
+            externalId: config("snapbi.{$this->provider}.external_id"),
+            channelId: config("snapbi.{$this->provider}.channel_id"),
+            signature: ServiceSignature::generate([
+                'provider' => $this->provider,
+                'authToken' => $this->authToken->get(),
+                'timestamp' => $this->timestamp,
+                'endpoinUrl' => "/{$endpoint}",
+                'httpMethod' => 'POST',
+                'payload' => $data,
+            ])
+        );
+
+        $req = $this->requestor
+                ->withHeaders($headers->toArray())
+                ->post($url, $data);
+
+        if ( !$req->successful() ) {
+            return json_decode($req->getBody());
+        }
+
+        return $req->object();
+    }
+
+    public function internal($data) {
+        $endpoint = UrlFactory::create($this->provider, 'account-inquiry-internal');
+        $url = config("snapbi.{$this->provider}.url") . '/'. $endpoint;
+
+        $headers = new HeaderFactory(
+            authorization: $this->authToken->get(),
+            timestamp: $this->timestamp,
+            partnerId: config("snapbi.{$this->provider}.client_id"),
+            externalId: config("snapbi.{$this->provider}.external_id"),
+            channelId: config("snapbi.{$this->provider}.channel_id"),
+            signature: ServiceSignature::generate([
+                'provider' => $this->provider,
+                'authToken' => $this->authToken->get(),
+                'timestamp' => $this->timestamp,
+                'endpoinUrl' => "/{$endpoint}",
+                'httpMethod' => 'POST',
+                'payload' => $data,
+            ])
+        );
+
+        $req = $this->requestor
+                ->withHeaders($headers->toArray())
+                ->post($url, $data);
+
+        if ( !$req->successful() ) {
+            return json_decode($req->getBody());
+        }
+
+        return $req->object();
+    }
+}
