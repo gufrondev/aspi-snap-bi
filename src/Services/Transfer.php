@@ -37,6 +37,14 @@ class Transfer
         }
     }
 
+    /**
+     * Transfers data to the specified provider using the provided method.
+     *
+     * @param array $data The data to be transferred.
+     * @param string $method The method to be used for the transfer.
+     *
+     * @return mixed The response from the provider, or an error message if the request fails.
+     */
     public function transfer($data, $method)
     {
         $endpoint = UrlFactory::create($this->provider, "transfer-{$method}");

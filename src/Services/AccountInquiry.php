@@ -37,6 +37,14 @@ class AccountInquiry
         }
     }
 
+    /**
+     * Execute an external account inquiry request.
+     *
+     * @param array $data The payload data for the request.
+     *
+     * @return mixed The response object from the API.
+     * @throws \Exception If the request fails.
+     */
     public function external($data) {
         $endpoint = UrlFactory::create($this->provider, 'account-inquiry-external');
         $url = config("snapbi.{$this->provider}.url") . '/'. $endpoint;
@@ -68,6 +76,14 @@ class AccountInquiry
         return $req->object();
     }
 
+    /**
+     * Execute an internal account inquiry request.
+     *
+     * @param array $data The payload data for the request.
+     *
+     * @return mixed The response object from the API.
+     * @throws \Exception If the request fails.
+     */
     public function internal($data) {
         $endpoint = UrlFactory::create($this->provider, 'account-inquiry-internal');
         $url = config("snapbi.{$this->provider}.url") . '/'. $endpoint;

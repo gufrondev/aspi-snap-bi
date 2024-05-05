@@ -35,6 +35,11 @@ class AuthToken
         }
     }
 
+    /**
+     * Retrieves the cached access token from the Snap BI API.
+     *
+     * @return string|null The cached access token, or null if it does not exist.
+     */
     public function get()
     {
         $cacheName = "snapbi.{$this->provider}.access_token";
@@ -46,6 +51,13 @@ class AuthToken
         return Cache::get($cacheName);
     }
 
+    /**
+     * Request an access token from the Snap BI API.
+     *
+     * @param string $timestamp The current timestamp in ISO 8601 format.
+     * @param string $provider The name of the Snap BI data source.
+     * @return string The access token.
+     */
     public function request()
     {
         $enpoint = UrlFactory::create($this->provider, 'access-token/b2b');

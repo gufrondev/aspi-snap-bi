@@ -22,6 +22,11 @@ class HeaderFactory
         protected $httpMethod = '',
     ) {}
 
+    /**
+     * Converts the HeaderFactory object to an associative array of HTTP headers.
+     *
+     * @return array An associative array of HTTP headers.
+     */
     public function toArray()
     {
         $header = [
