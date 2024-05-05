@@ -67,6 +67,6 @@ class TokenSignature
 
         $signature = base64_decode($signature);
 
-        return openssl_verify($data, $signature, $assym_key, 'RSA-SHA256');;
+        return openssl_verify($data, $signature, $assym_key, 'RSA-SHA256');
     }
 }
