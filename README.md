@@ -2,16 +2,16 @@
 Multi-Providers (banks) ASPI SNAP BI Package
 
 ### Features
-[x] Internal Bank Inquiry
-[x] External Bank Inquiry
-[x] Transfer Intrabank
-[x] Transfer Interbank
-[x] Transfer RTGS
-[x] Transfer SKN
-[] VA Payment webhook
-[] VA Inquery webhook
-[] External VA Payment
-[] External VA Inquiry
+- [x] Internal Bank Inquiry
+- [x] External Bank Inquiry
+- [x] Transfer Intrabank
+- [x] Transfer Interbank
+- [x] Transfer RTGS
+- [x] Transfer SKN
+- [ ] VA Payment webhook
+- [ ] VA Inquery webhook
+- [ ] External VA Payment
+- [ ] External VA Inquiry
 
 ### Instalation
 ```
