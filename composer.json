@@ -19,19 +19,17 @@
     },
     "autoload": {
       "psr-4": {
-        "GufronDev\\AspiSnapBI\\": "src/"
+        "GufronDev\\AspiSnapBI\\": "src"
       }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GufronDev\\AspiSnapBi\\Tests\\": "tests"
+        }
     },
     "extra": {
         "laravel": {
             "providers": "GufronDev\\AspiSnapBI\\AspiSnapBIServiceProvider"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-      "sort-packages": true,
-      "preferred-install": "dist",
-      "optimize-autoloader": true
     }
 }
